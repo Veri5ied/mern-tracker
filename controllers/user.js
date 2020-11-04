@@ -2,11 +2,13 @@ const User = require("../models/user");
 
 exports.Login = (req, res, next) => {
   User.find()
-    .then((users) => {
-      res.status(200).json(users);
+    .then(() => {
+      res.status(200).json({
+        message: "Users available"
+      });
     })
     .catch((error) => {
-      res.status(404).json({
+      res.status(400).json({
         error: error,
       });
     });
